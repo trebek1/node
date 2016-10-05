@@ -1,6 +1,9 @@
 
 // NOTES 
 
+// when you call module.exports, the file is wrapped in a function with exports, require, module, __filename and __dirname
+// using editor visual studio code you can dive into the v8 engine and the javascript core 
+
 // if you require a file it looks for js file automatically or what you explicitly defined it as 
 // this code is in the node require javascript core 
 
@@ -18,6 +21,7 @@
 // once a module.exports is required, it is cached and calling again will call same one again. 
 
 // HERE ARE SOME DESIGN PATTERNS
+
 
 var greet = require('./greet1');
 greet();
@@ -38,3 +42,31 @@ grtr.greet();
 
 var greet5 = require('./greet5').greet;
 greet5();
+
+// exports and module.exports are similar but not all design patterns will work for exports 
+// setting exports equal to a value makes exports point to its own copy of module.exports so 
+// both will not have the same value, now require will be empty but exports will have value 
+// mutations will still work so adding properties by using module.greet etc 
+
+// exports = function ..... will break 
+exports.greet = function //..... will work 
+
+var util = require('util') // this is a native module, if this is native, goes and gets that module 
+
+//ES6 
+
+//import * as greetr from 'greet'; returns all exports from greet library with greetr 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
