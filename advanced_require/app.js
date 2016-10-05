@@ -57,7 +57,11 @@ var util = require('util') // this is a native module, if this is native, goes a
 
 //import * as greetr from 'greet'; returns all exports from greet library with greetr 
 
+// events in node 
 
+// system events from C++ core though libuv 
+// custom events from javascript core event emitter 
+// -> javascript has no events but fakes it with a library 
 
 
 
