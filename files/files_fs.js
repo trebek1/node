@@ -5,6 +5,7 @@ console.log(greet);
 
 var greet2 = fs.readFile(__dirname + '/greet.txt', 'utf8', function(err, data){
 	// error first callbacks 
+	// data sits on a buffer on the heap in v8
 	console.log(data)
 });
 
