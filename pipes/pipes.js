@@ -16,6 +16,8 @@ readable.pipe(gzip).pipe(compressed);
 // pipe is on the prototype of the redable so it has access to it 
 // if parent object is returned -> cascading 
 // chaining if returns changes along the way 
+// should use async streams 
+// streams and pipes are the 'node' way 
 
 
 
