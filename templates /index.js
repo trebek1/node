@@ -9,12 +9,16 @@ http.createServer(function(req, res){
 		'Content-type': 'text/html'
 	})
 	//sync call 
-	var html = fs.readFileSync(__dirname + '/index.htm', 'utf8');
+	//fs.createReadStream would change to stream
+	//var html = fs.readFileSync(__dirname + '/index.htm', 'utf8');
+	fs.createReadStream(__dirname + '/index.htm').pipe(res);
+	// readStream does not need whole file to be placed in buffer then converted. More responsive/performant 
 	// utf8 param tells to convert to string 
 	// now use use message to replace part of string {message}, with message
-	var message = 'hello world....';
-	html = html.replace('{message}', message);
-	res.end(html); 
+	//var message = 'hello world....';
+	//html = html.replace('{message}', message);
+
+	//res.end(html); 
 
 
 
