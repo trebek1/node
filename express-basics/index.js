@@ -1,5 +1,8 @@
 var express = require('express');
 var app = express();
+
+var mysql = require('mysql');
+
 var bodyParser = require('body-parser');
 
 var port = process.env.PORT || 3000; 
@@ -8,6 +11,19 @@ var urlencodedParser = bodyParser.urlencoded({extended: false});
 var jsonParser = bodyParser.json(); 
 
 app.use('/assets', express.static(__dirname + '/public'));
+
+app.use('/', function(req,res, next){
+	console.log('request url ');
+
+	var con = mysql.createConnection({
+		host: 'localhost',
+		user: 'test',
+		password: 'test',
+		database: addressbook
+	});
+	next();
+});
+
 
 app.set('view engine', 'ejs');
 
