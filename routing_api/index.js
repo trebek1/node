@@ -5,9 +5,9 @@ http.createServer(function(req, res){
 	
 
 	if(req.url ==='/'){
+		console.log("here")
 		fs.createReadStream(__dirname + '/index.htm').pipe(res);
-	}
-	if(req.url === '/api'){
+	}else if(req.url === '/api'){
 		res.writeHead(200,{'Content-type': 'application/json'});
 
 	var obj = {
@@ -17,7 +17,12 @@ http.createServer(function(req, res){
 	}
 
 	res.end(JSON.stringify(obj)); 	
+	}else{
+		console.log('also')
+		res.writeHead(404);
+		res.end();	
 	}
+	
 	
 
 }).listen(1337, '127.0.0.1'); 
